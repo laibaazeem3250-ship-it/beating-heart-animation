@@ -1,0 +1,109 @@
+/* Style  */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    height: 100vh;
+    background: radial-gradient(circle at center, #300, #000);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .heart-wrapper {
+    position: relative;
+    width: 160px;
+    height: 160px;
+  }
+
+  .heart {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: #ff1a1a;
+    left: 30px;
+    top: 30px;
+    transform: rotate(-45deg);
+    filter: drop-shadow(0 0 25px rgba(255, 0, 0, 0.8));
+  }
+
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: #ff1a1a;
+    border-radius: 50%;
+  }
+
+  .heart::before {
+    top: -50px;
+    left: 0;
+  }
+
+  .heart::after {
+    left: 50px;
+    top: 0;
+  }
+
+  .beat {
+    animation: beat 0.65s cubic-bezier(0.25, 1.5, 0.5, 1);
+  }
+
+  @keyframes beat {
+    0%   { transform: rotate(-45deg) scale(1); }
+    20%  { transform: rotate(-45deg) scale(1.35); }
+    40%  { transform: rotate(-45deg) scale(1); }
+    60%  { transform: rotate(-45deg) scale(1.2); }
+    100% { transform: rotate(-45deg) scale(1); }
+  }
+
+  /* Pulse Ring */
+  .pulse {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    border: 2px solid rgba(255, 0, 0, 0.6);
+    border-radius: 50%;
+    animation: pulse 1.2s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(0.6);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.4);
+      opacity: 0;
+    }
+  }
+
+  /* Floating particles */
+  .particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: red;
+    border-radius: 50%;
+    animation: float 3s linear infinite;
+    opacity: 0.7;
+  }
+
+  @keyframes float {
+    from {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(-120px) scale(0);
+      opacity: 0;
+    }
+  } 
+
+  
